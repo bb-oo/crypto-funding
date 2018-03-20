@@ -1,0 +1,100 @@
+# Application Basics
+
+Backers.Online - first application build
+
+front end and user registration the same as backers.games
+	We will use a different primary color instead of blue.
+	Use a darker shade of red or purple, whichever looks ok to the eye.
+
+Once a user registers, they will see the following options: The ALL CAPS word should be the button/link
+
+CREATE a campaign  
+MANAGE a campaign
+CONTRIBUTE to a campaign
+SEARCH for a campaign
+
+*****************	
+   CREATE options
+*****************
+
+Campaign Name: 
+	must be unique to the user, will append as with games  
+
+Campaign Purpose: - We should add this field to the database anyway as game events may want 
+		a place to outline the game, terms, history and other details.
+	Text field that can be filled in to explain the campaign and give data.  
+	
+Funding Request:
+	Ehter to be raised: Later can integrate the translation between crypto and dollars.
+	  
+
+Minimum Funding:	set as %.  Default can be 50%
+	Minimum funding that must be attained for the money to be transfered to the beneficiary  
+	If minimum is not met, funds need to return to sender.      
+	We need to ensure we have a valid return address 
+		or that funding comes from a wallet that can be returned to.
+			We can make users enter a return address when they fund a campaign
+Funding Deadline - 
+	I can specify the date of my minimum funding requirement.
+		
+Options if maximum funding not met:
+	If over 50%  but less than 100% by funding date, give creator option to return or be paid.
+	
+Number of payees:  Users may fund for purposes that require multiple payouts, this is our strength.
+	We already have this in games.
+	Allow a creator to specify payout addresses before the contract is created.  
+	Dropdown box numbers 1-10.  For the free version, we will cap at 10.
+	Whatever number they choose, they then see three fields for each number.
+		One string field to name the wallet 
+		one field for the amount of ether to send to the wallet, 
+		one string field for the wallet address
+	These are locked in ahead of contract funding 
+		- perhaps a scenario where we might want these editable.
+			-perhaps make this an option instead of hard code, but for demo, we can have them locked
+	We need to ensure that we add a fee to the total amount needed to fund the campaign.
+		the additional amount should cover all payout transaction fees, gas, whatever.  
+			We can talk about this later.
+	
+	
+*****************	
+   MANAGE options
+*****************	
+User should be at a dashboard showing any events they have created or contributed to.
+
+If they have created an event they should have the following options by clicking on the event or perhaps as buttons under the event, or the event with a check box and these as options that can be executed against the checkbox.  ( I like the checkbox option the least.)
+	View contributors and overall funding status
+	Refund a contributor
+	Delete an event - This will trigger a refund to all participants
+
+If they have contributed to an event they should have the following options by clicking on the event or perhaps as buttons under the event, or the event with a check box and these as options that can be executed against the checkbox.  ( I like the checkbox option the least.)
+	View contributors and overall funding status
+	Get a refund of their contribution
+	Message campaign coordinator/creator - (Stub this)
+
+
+*****************	
+   CONTRIBUTE options
+*****************	
+User should be at a dashboard where they can type in the campaign name and see the details of the contract, this includes the short name and the longer description field as well as the funding and payout details.  It can also include the target and how much has been raised by %
+Users should be able to search for a campaign by the short name or by the username of the user who created the contract.  Search that user and you can see all of their campaigns.  Once you select the correct campaign, you will then see the campaign details.  The 'Back this Campaign' button is available, once selected, users will be presented with the following fields to be filled in:
+
+Contributor username will be captured / auto filled:
+Contribution amount in ether
+Minimum Funding Requirement
+	I as a user may decide that if the campaign is not 90% or 100% 
+		funded I want my contribution back. 
+	I can also say that I want it to go to the recipient even if I am the only 
+		contributor by putting in zero % or here, perhaps a check box is a good idea.
+
+Funding Deadline - 
+	I can specify the date of my minimum funding requirement.
+	
+Return wallet address, 
+		option to use Metamask autofill? ( again, a good check box.)
+			make sure we get a real wallet address and not an account logged into the test network
+
+Message:
+	A short-ish string used for user comments on campaigns 
+		- can be gathered to promote campaign and encourage others to join
+
+
