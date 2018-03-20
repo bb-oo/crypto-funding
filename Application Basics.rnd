@@ -43,7 +43,11 @@ Options if maximum funding not met:
 Number of payees:  Users may fund for purposes that require multiple payouts, this is our strength.
 	We already have this in games.
 	Allow a creator to specify payout addresses before the contract is created.  
-	Dropdown box numbers 1-10.  For the free version, we will cap at 10.
+	Dropdown box numbers 1-5.  For the free version, we will cap at 5.
+		We want the capacity to do more if they pay fee, so don't cap us, restrict them.
+			We will want and need up to 50 payouts and for games it could be hundreds, perhaps thousands.
+			For games, each player puts in their payout address when they register so keep that.  It also makes 
+				payouts easy as you pay top x players/vendors and just grab associated address if they are included in the payout.
 	Whatever number they choose, they then see three fields for each number.
 		One string field to name the wallet 
 		one field for the amount of ether to send to the wallet, 
