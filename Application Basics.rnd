@@ -102,3 +102,19 @@ Message:
 		- can be gathered to promote campaign and encourage others to join
 
 
+
+*****************	
+   DATABASE Updates - Update Games as well......
+*****************
+
+You will notice a few more fields in the database mentioned in the document and highlighted below, that I don't think we considered with Games.  I think they are just as valuable with games and should be added to the database there as well.  We will call the fields when building out the dashboards and event details pages as we go forward and should be prepared to capture the data now..  
+The fields are:
+(1) CAMPAIGN PURPOSE : Long string field when you create an event:  
+Here you can put in details, marketing info or slogan, history or detailed need information or parties involved. For games it can be league information, detailed info for payouts and prize structure, etc.
+(2) MINIMUM FUNDING :
+(3) FUNDING DEADLINE: - terminated contract and refunds if event/campaign/game fails to meet target.
+(4)  CONTRIBUTE MESSAGE : A short string field users can make comments about the campaign or contribution. Like a quick review, encouragement, note to self, etc. 
+(5) USER HANDLE : This is a short string field that users can record a little slogan about themselves.  example, user: btinney handle: "Poker Wizard" or "Social Justice Warrior" or "I like puppies"
+
+I am sure we will need other fields created as I have added some tracking issues with number of payouts, return addresses, options to pay or not if the event is partially funded.  
+
