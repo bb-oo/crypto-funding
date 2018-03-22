@@ -9,7 +9,7 @@ const NavWrapper = styled.nav`
   flex-shrink: 0;
   height: 54px;
   width: 100%;
-  padding: 0 20px;
+  padding: 0 40px;
   box-sizing: border-box;
 `;
 
@@ -33,6 +33,11 @@ const NavRight = styled.div`
 `;
 
 const Logo = styled.img`
+  width: 140px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const notRegistered = [
@@ -49,7 +54,7 @@ export const NavBar = ({ username }) => {
     <NavWrapper>
       <FlexWrapper>
         <NavLeft>
-          <Logo/>
+          <Logo href="/" src="backers-logo-small.png"/>
         </NavLeft>
         <NavRight>
           { username ?  registered : notRegistered }

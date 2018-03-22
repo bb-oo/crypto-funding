@@ -13,16 +13,18 @@ const NavWrapper = styled.div`
 `;
 
 const Nav = styled(Link)`
-  color: rgb(218, 225, 233);
+  color: rgba(0, 0, 0, 0.6);
   text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
 
   &:hover {
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: rgba(0, 0, 0, 1);
   }
 
   &:visited {
-    color: rgb(218, 225, 233);
+    color: rgb(0, 0, 0, 0.6);
   }
 `;
 
