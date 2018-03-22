@@ -8,10 +8,13 @@ const NavWrapper = styled.div`
   align-items: center;
   flex-direction: row;
   box-sizing: border-box;
+  display: inline-block;
+  margin-right: 8px;
 `;
 
 const Nav = styled(Link)`
   color: rgb(218, 225, 233);
+  text-decoration: none;
 
   &:hover {
     text-decoration: none;

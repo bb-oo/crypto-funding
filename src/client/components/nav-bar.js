@@ -36,15 +36,15 @@ const Logo = styled.img`
 `;
 
 const notRegistered = [
-  <NavLink key={1} path="/signup" text="Sign Up"/>,
-  <NavLink key={2} path="/signin" text="Sign In"/>
+  <NavLink key={1} path="/signin" text="Sign In"/>,
+  <NavLink key={2} path="/signup" text="Sign Up"/>
 ];
 
 const registered = [
 
 ];
 
-const NavBar = ({ username }) => {
+export const NavBar = ({ username }) => {
   return (
     <NavWrapper>
       <FlexWrapper>
