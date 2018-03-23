@@ -2,7 +2,7 @@ import { before, beforeEach, afterEach } from 'mocha';
 import chai from 'chai';
 import chaiEnzyme from 'chai-enzyme';
 import { JSDOM } from 'jsdom';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { grey } from 'chalk';
@@ -22,7 +22,7 @@ const copyProps = src => target => {
   Object.defineProperties(target, props);
 }
 
-before(() => console.log(grey('\n Integration Tests\n')));
+before(() => console.log(grey('\n Unit Tests\n')));
 
 beforeEach(() => {
   const { window } = new JSDOM(`<!doctype html><html><body></body></html>`);
@@ -40,7 +40,7 @@ afterEach(() => {
 });
 
 const withStore = initialState => {
-  const store = initStore(initialState);
+  const store = initStore({});
 
   return function WithStore(Component, ownProps) {
     return (
@@ -49,9 +49,9 @@ const withStore = initialState => {
           <Component { ...ownProps }/>
         </MemoryRouter>
       </Provider>
-    );
-  };
-};
+    )
+  }
+}
 
 export * from './shared';
-export { mount, withStore };
+export { shallow, withStore, copyProps };

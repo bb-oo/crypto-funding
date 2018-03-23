@@ -7,9 +7,12 @@ import NavLink from './nav-link';
 
 const NavWrapper = styled.nav`
   flex-shrink: 0;
-  height: 54px;
+  height: 74px;
   width: 100%;
   padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   box-sizing: border-box;
 `;
 
@@ -17,7 +20,9 @@ const FlexWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   box-sizing: border-box;
+  width: 100%;
 `;
 
 const NavLeft = styled.div`

@@ -9,7 +9,7 @@ const NavWrapper = styled.div`
   flex-direction: row;
   box-sizing: border-box;
   display: inline-block;
-  margin-right: 8px;
+  margin-right: 10px;
 `;
 
 const Nav = styled(Link)`
