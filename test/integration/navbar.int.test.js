@@ -11,7 +11,7 @@ describe('NavBar', () => {
     const username = "Test User";
 
     beforeEach(() => {
-      const provide = withStore({})
+      const provide = withStore({});
       const Wrapper = provide(NavBar, { username: username });
       wrapper = mount(Wrapper);
     });
