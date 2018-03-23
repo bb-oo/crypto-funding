@@ -1,11 +1,13 @@
 import React, { Fragment } from 'react';
 
-import Page from '../layouts/page';
+import { NavBar, Jumbo } from '../components/index';
 
 const Home = props => {
   return (
     <Fragment>
-      <Page/>
+      <NavBar/>
+      <Jumbo bg="linear-gradient(to right, #4b74b3, #4f4f8d)">
+      </Jumbo>
     </Fragment>
   )
 }
