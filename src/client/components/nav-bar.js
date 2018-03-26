@@ -59,7 +59,7 @@ export const NavBar = ({ username }) => {
     <NavWrapper>
       <FlexWrapper>
         <NavLeft>
-          <Logo href="/" src="backers-logo-small.png"/>
+          <NavLink path="/"><Logo src="backers-logo-small.png"/></NavLink>
         </NavLeft>
         <NavRight>
           { username ?  registered : notRegistered }
