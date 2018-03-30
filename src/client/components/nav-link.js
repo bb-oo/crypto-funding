@@ -28,17 +28,17 @@ const Nav = styled(Link)`
   }
 `;
 
-const NavLink = ({ path, text }) => {
+const NavLink = ({ path, text, children }) => {
   return (
     <NavWrapper>
-      <Nav to={path}>{text}</Nav>
+      <Nav to={  path  }>{  text || children  }</Nav>
     </NavWrapper>
   );
 };
 
 NavLink.propTypes = {
   path: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired
+  text: PropTypes.string
 };
 
 export default NavLink;
