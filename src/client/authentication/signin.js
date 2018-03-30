@@ -1,23 +1,19 @@
 import React from 'react';
-import _ from 'lodash';
 import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 import { bindActionCreators } from 'redux';
 
-import { asyncValidateUsername, manageSubmit, validate } from './actions';
 import { Input, Button } from '../components/index';
+import { manageSubmit, onSubmitSuccess, validate } from './actions';
 
-const asyncValidate = _.debounce(asyncValidateUsername, 200);
-
-const Form = ({ manageSubmit, handleSubmit, submitting, asyncValidate }) => {
+const Form = ({ submitting, handleSubmit }) => {
   return (
-    <form name="register" onSubmit={ handleSubmit(values => manageSubmit(values)) }>
+    <form name='signin' onSubmit={ handleSubmit(values => manageSubmit(values)) }>
       <Field
         autoFocus
         name='username'
         type='text'
-        placeholder='Username'
-        onChange={ event => asyncValidate(event.target.value) }
+        placeholder='username'
         component={ Input }
       />
       <Field
@@ -32,19 +28,19 @@ const Form = ({ manageSubmit, handleSubmit, submitting, asyncValidate }) => {
         placeholder='Password'
         component={ Input }
       />
-      <Button type='submit' disabled={ submitting }>Register</Button>
+      <Button type='submit' disabled={ submitting }>Sign In</Button>
     </form>
-  )
-}
+  );
+};
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  asyncValidate,
-  manageSubmit
+  manageSubmit,
+  onSubmitSuccess
 }, dispatch);
 
-const Register = reduxForm({
-  form: 'register',
+const SignIn = reduxForm({
+  form: 'signin',
   validate
 })(Form);
 
-export default connect(null, mapDispatchToProps)(Register);
+export default connect(null, mapDispatchToProps)(SignIn);

@@ -23,7 +23,7 @@ router.get('*', (req, res) => {
 app.get('/validate/:username', async (req, res) => {
   const response = await validate(req.params.username);
   res.json(response);
-})
+});
 
 app.post('/create/user', async (req, res) => {
   const data = await createUser(req.body);
