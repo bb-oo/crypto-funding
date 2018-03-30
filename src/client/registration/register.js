@@ -10,44 +10,33 @@ import { Input, Button } from '../components/index';
 
 const asyncValidate = _.debounce(asyncValidateUsername, 200);
 
-const Wrapper = styled.div`
-  margin: 0 auto;
-  background-color: #f2f2f2;
-  width: 600px; 
-  height: 500px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-`;
+
 
 const Form = ({ manageSubmit, handleSubmit, submitting, asyncValidate }) => {
   return (
-    <Wrapper>
-      <form name="register" onSubmit={ handleSubmit(values => manageSubmit(values)) }>
-        <Field
-          autoFocus
-          name='username'
-          type='text'
-          placeholder='Username'
-          onChange={ event => asyncValidate(event.target.value) }
-          component={ Input }
-        />
-        <Field
-          name='email'
-          type='email'
-          placeholder='Email'
-          component={ Input }
-        />
-        <Field
-          name='password'
-          type='password'
-          placeholder='Password'
-          component={ Input }
-        />
-        <Button type='submit' disabled={ submitting }>Register</Button>
-      </form>
-    </Wrapper>
+    <form name="register" onSubmit={ handleSubmit(values => manageSubmit(values)) }>
+      <Field
+        autoFocus
+        name='username'
+        type='text'
+        placeholder='Username'
+        onChange={ event => asyncValidate(event.target.value) }
+        component={ Input }
+      />
+      <Field
+        name='email'
+        type='email'
+        placeholder='Email'
+        component={ Input }
+      />
+      <Field
+        name='password'
+        type='password'
+        placeholder='Password'
+        component={ Input }
+      />
+      <Button type='submit' disabled={ submitting }>Register</Button>
+    </form>
   )
 }
 
