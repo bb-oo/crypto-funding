@@ -6,11 +6,11 @@ const knex = Knex({
   connection: process.env.DATABASE_URL
 });
 
-export const postUser = (...data) => {
+export const postUser = (username, email) => {
   const query = knex
     .insert({
-      username: data.username,
-      email: data.email
+      username: username,
+      email: email
     })
     .into('users');
   
@@ -22,7 +22,8 @@ export const validateUsername = username => {
     .table('users')
     .where({
       username: username
-    });
+    })
+    .select('username');
 
   return query;
 }

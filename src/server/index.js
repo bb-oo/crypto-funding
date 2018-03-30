@@ -13,6 +13,7 @@ app.use(express.static(__dirname + '/../client/static'));
 app.use(express.static(__dirname + '/../../build/'));
 app.use(express.static(__dirname + '/../client/static/images/'));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(helmet());
 
 router.get('*', (req, res) => {
