@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { faCog } from '@fortawesome/fontawesome-free-solid';
 
 import NavLink from './nav-link';
 
@@ -62,7 +64,7 @@ export const NavBar = ({ session }) => {
           <NavLink path="/"><Logo src="backers-logo-small.png"/></NavLink>
         </NavLeft>
         <NavRight>
-          { session.loggedIn ?  <NavLink path="/">{ session.username }</NavLink> : notRegistered }
+          { session.loggedIn ?  <NavLink path="/">{ session.username }  <FontAwesomeIcon icon={ faCog }/></NavLink> : notRegistered }
         </NavRight>
       </FlexWrapper>
     </NavWrapper>
