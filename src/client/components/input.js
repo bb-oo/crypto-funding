@@ -82,27 +82,25 @@ const ErrorWrapper = styled.div`
 
 const Input = ({ input, meta, ...props }) => {
   return (
-    <React.Fragment>
-      <Wrapper>
-        <InputLeft>
-          <input { ...input } { ...{ ...props } } />
-        </InputLeft>
-        <InputRight>
-          {(() => {
-            if ((meta.touched && meta.error) || (meta.dirty && meta.error)) return <RedIcon icon={ faExclamationCircle }/>;
-            else if ((meta.touched && !meta.error) || (meta.dirty && !meta.error)) return <GreenIcon icon={ faCheckCircle }/>;
-            else return;
-          })()}
-        </InputRight>
+    <Wrapper>
+      <InputLeft>
+        <input { ...input } { ...{ ...props } } />
+      </InputLeft>
+      <InputRight>
         {(() => {
-          if ((meta.touched && meta.error) || (meta.dirty && meta.error)) {
-            return (
-              <ErrorWrapper>{ meta.error }</ErrorWrapper>
-            )
-          }
+          if ((meta.touched && meta.error) || (meta.dirty && meta.error)) return <RedIcon icon={ faExclamationCircle }/>;
+          else if ((meta.touched && !meta.error) || (meta.dirty && !meta.error)) return <GreenIcon icon={ faCheckCircle }/>;
+          else return;
         })()}
-      </Wrapper>
-    </React.Fragment>
+      </InputRight>
+      {(() => {
+        if ((meta.touched && meta.error) || (meta.dirty && meta.error)) {
+          return (
+            <ErrorWrapper>{ meta.error }</ErrorWrapper>
+          )
+        }
+      })()}
+    </Wrapper>
   );
 }
 
