@@ -17,7 +17,7 @@ export const postUser = (username, email) => {
   return query;
 }
 
-export const validateUsername = username => {
+export const getUsername = username => {
   const query = knex  
     .table('users')
     .where({

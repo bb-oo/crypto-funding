@@ -1,14 +1,9 @@
 import axios from 'axios';
 import history from '../utils/history';
 
-export const manageSubmit = ({ email, password }) => {
+export const manageSubmit = values => {
   return async (dispatch, getState) => {
-    const { data } = await axios.get('/auth/user', {
-      params: {
-        email: email,
-        password: password
-      }
-    });
+    const { data } = await axios.post('/auth/user', values);
 
     return data;
   }

@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import { Input, Button } from '../components/index';
 import { manageSubmit, onSubmitSuccess, validate } from './actions';
 
-const Form = ({ submitting, handleSubmit }) => {
+const Form = ({ submitting, handleSubmit, manageSubmit }) => {
   return (
     <form name='signin' onSubmit={ handleSubmit(values => manageSubmit(values)) }>
       <Field
