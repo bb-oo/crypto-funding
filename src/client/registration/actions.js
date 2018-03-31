@@ -2,33 +2,39 @@ import React from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
+import history from '../utils/history';
+import { isEmail, validateUsername, validatePassword } from './helpers';
+
 export const asyncValidateUsername = ({ username }) => {
   return async (dispatch, getState) => {
-    console.log(username)
     if (!username) return;
-    const { data } = await axios.get(`/validate/${username}`);
-    console.log(data)
+    const { data } = await axios.get(`/user/${username}`);
     if (data.length > 0) {
       throw { username: `Username ${username} is already taken.` };
     } 
   }
 }
 
-export const validate = values => {
+export const validate = ({ username = '', password = '', email = '' }) => {
   const errors = {};
 
-  if (!values.username) errors.username = 'Required';
-  if (!values.email) errors.email = 'Required';
-  if (!values.password) errors.password = 'Required';
+  errors.username = validateUsername(username);
+  errors.email = isEmail(email) ? null : 'A valid email is required.';
+  errors.password = validatePassword(password);
 
   return errors;
 }
 
 export const manageSubmit = values => {
   return async (dispatch, getState) => {
-    console.log(values)
     const response = await axios.post('/create/user', values);
 
     return <Redirect to="/signin"/>;
+  }
+}
+
+export const onSubmitSuccess = () => {
+  return (dispatch, getState) => {
+    history.push('/signin')
   }
 }

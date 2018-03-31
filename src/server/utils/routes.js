@@ -1,12 +1,26 @@
 import { auth } from './firebase';
-import { postUser, validateUsername } from './database';
+import { postUser, getUsername } from './database';
 
-export const createUser = async ({ username, email, password }) => {
-  const firebaseRes = await auth.createUserWithEmailAndPassword(email, password);
-  const postgresRes = await postUser(username, email);
-  return { firebaseRes, postgresRes };
+export const createUser = ({ username, email, password }) => {
+  return auth.createUserWithEmailAndPassword(email, password)
+    .then(() => {
+      postUser(username, email)
+        .then(data => data)
+        .catch(err => err)
+    })
+    .catch(err => err);
 };
 
 export const validate = username => {
-  return validateUsername(username);
+  return getUsername(username);
+}
+
+export const signInUser = ({ username, email, password }) => {
+  return auth.signInWithEmailAndPassword(email, password)
+    .then(() => {
+      getUsername(username)
+        .then(data => data)
+        .catch(err => err)
+    })
+    .catch(err => err)
 }
