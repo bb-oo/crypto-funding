@@ -28,7 +28,7 @@ const Form = ({ submitting, handleSubmit, manageSubmit }) => {
         placeholder='Password'
         component={ Input }
       />
-      <Button type='submit' disabled={ submitting }>Sign In</Button>
+      <Button type='submit' disabled={ submitting }>Login</Button>
     </form>
   );
 };

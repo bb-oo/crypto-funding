@@ -5,7 +5,7 @@ import Login from '../layouts/login';
 
 const data = {
   header: 'Sign In',
-  subHeader: 'Sign in to your Backers FundMe account',
+  subHeader: 'Login to your Backers FundMe account',
   text: 'Don\'t have an account?',
   path: '/signup',
   linkText: 'Sign Up'
