@@ -1,6 +1,8 @@
 import axios from 'axios';
 import history from '../utils/history';
 
+import { isEmail, validateUsername, validatePassword } from './helpers';
+
 export const manageSubmit = values => {
   return async (dispatch, getState) => {
     const { data } = await axios.post('/auth/user', values);
@@ -18,12 +20,12 @@ export const onSubmitSuccess = ({ username }) => {
   }
 }
 
-export const validate = values => {
+export const validate = ({ username = '', email = '', password = '' }) => {
   const errors = {};
 
-  if (!values.username) errors.username = 'Required';
-  if (!values.email) errors.email = 'Required';
-  if (!values.password) errors.password = 'Required';
+  errors.username = validateUsername(username);
+  errors.email = isEmail(email) ? null : 'Invalid email.';
+  errors.password = validatePassword(password);
 
   return errors;
 }

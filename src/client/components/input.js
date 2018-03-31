@@ -8,8 +8,9 @@ const Wrapper = styled.div`
   display: inline-block;
   position: relative;
   min-height: 70px;
-  width: 250px;
+  width: 300px;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
@@ -28,7 +29,7 @@ const Wrapper = styled.div`
     color: #363b4a;
     font-size: 16px;
     height: 70px;
-    width: 200px;
+    width: 230px;
   }
 
   & input::placeholder {
@@ -68,14 +69,14 @@ const ErrorWrapper = styled.div`
   display: flex;
   background-color: #f16767;
   min-height: 70px;
-  width: 130px;
+  width: 140px;
   font-family: inherit;
   font-weight: 400;
   letter-spacing: 1px;
   color: white;
   align-items: center;
   justify-content: center;
-  margin-left: 250px;
+  margin-left: 300px;
   padding: 5px;
 `;
 

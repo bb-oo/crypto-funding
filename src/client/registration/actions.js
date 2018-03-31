@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
 import history from '../utils/history';
+import { isEmail, validateUsername, validatePassword } from './helpers';
 
 export const asyncValidateUsername = ({ username }) => {
   return async (dispatch, getState) => {
@@ -14,12 +15,12 @@ export const asyncValidateUsername = ({ username }) => {
   }
 }
 
-export const validate = values => {
+export const validate = ({ username = '', password = '', email = '' }) => {
   const errors = {};
 
-  if (!values.username) errors.username = 'Required';
-  if (!values.email) errors.email = 'Required';
-  if (!values.password) errors.password = 'Required';
+  errors.username = validateUsername(username);
+  errors.email = isEmail(email) ? null : 'A valid email is required.';
+  errors.password = validatePassword(password);
 
   return errors;
 }
