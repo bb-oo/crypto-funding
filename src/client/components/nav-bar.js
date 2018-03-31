@@ -54,7 +54,7 @@ const registered = [
 
 ];
 
-export const NavBar = ({ username }) => {
+export const NavBar = ({ session }) => {
   return (
     <NavWrapper>
       <FlexWrapper>
@@ -62,7 +62,7 @@ export const NavBar = ({ username }) => {
           <NavLink path="/"><Logo src="backers-logo-small.png"/></NavLink>
         </NavLeft>
         <NavRight>
-          { username ?  registered : notRegistered }
+          { session.loggedIn ?  <NavLink path="/">{ session.username }</NavLink> : notRegistered }
         </NavRight>
       </FlexWrapper>
     </NavWrapper>
@@ -77,7 +77,7 @@ NavBar.propTypes = {
 };
 
 const mapStateToProps = ({ session }) => {
-  return { username: session ? session.username : false }
+  return { session }
 };
 
 export default connect(mapStateToProps)(NavBar);

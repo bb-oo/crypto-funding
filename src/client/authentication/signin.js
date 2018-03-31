@@ -6,14 +6,17 @@ import { bindActionCreators } from 'redux';
 import { Input, Button } from '../components/index';
 import { manageSubmit, onSubmitSuccess, validate } from './actions';
 
-const Form = ({ submitting, handleSubmit, manageSubmit }) => {
+const Form = ({ submitting, handleSubmit, manageSubmit, onSubmitSuccess }) => {
   return (
-    <form name='signin' onSubmit={ handleSubmit(values => manageSubmit(values)) }>
+    <form name='signin' onSubmit={ handleSubmit(values => {
+      manageSubmit(values) 
+      onSubmitSuccess(values)
+    })}>
       <Field
         autoFocus
         name='username'
         type='text'
-        placeholder='username'
+        placeholder='Username'
         component={ Input }
       />
       <Field

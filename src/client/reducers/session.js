@@ -1,9 +1,9 @@
-function session(state = null, action) {
+function session(state = { loggedIn: false }, action) {
   switch (action.type) {
     case 'SESSION_STARTED':
-      return Object.assign({}, action.payload);
+      return Object.assign({}, { loggedIn: true }, action.payload);
     case 'SESSION_ENDED':
-      return null;
+      return Object.assign({}, {  loggedIn: false});
     default: 
       return state;
   }
