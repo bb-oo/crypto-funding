@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 import { bindActionCreators } from 'redux';
 
-import { asyncValidateUsername, manageSubmit, validate } from './actions';
+import { asyncValidateUsername, manageSubmit, validate, onSubmitSuccess } from './actions';
 import { Input, Button } from '../components/index';
 
 const asyncValidate = _.debounce(asyncValidateUsername, 200);
@@ -39,7 +39,8 @@ const Form = ({ manageSubmit, handleSubmit, submitting, asyncValidate }) => {
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   asyncValidate,
-  manageSubmit
+  manageSubmit,
+  onSubmitSuccess
 }, dispatch);
 
 const Register = reduxForm({
