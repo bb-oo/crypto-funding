@@ -52,10 +52,6 @@ const notRegistered = [
   <NavLink key={2} path="/signup" text="Sign Up"/>
 ];
 
-const registered = [
-
-];
-
 export const NavBar = ({ session }) => {
   return (
     <NavWrapper>
@@ -64,7 +60,7 @@ export const NavBar = ({ session }) => {
           <NavLink path="/"><Logo src="backers-logo-small.png"/></NavLink>
         </NavLeft>
         <NavRight>
-          { session.loggedIn ?  <NavLink path="/">{ session.username }  <FontAwesomeIcon icon={ faCog }/></NavLink> : notRegistered }
+          { session.loggedIn ?  [ <NavLink path="/create/campaign">Start a Campaign</NavLink>, <NavLink path="/">{ session.username }  <FontAwesomeIcon icon={ faCog }/></NavLink> ] : notRegistered }
         </NavRight>
       </FlexWrapper>
     </NavWrapper>
