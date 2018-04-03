@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropType from 'prop-types';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { faExclamationCircle, faCheckCircle } from '@fortawesome/fontawesome-free-solid';
 import { faEthereum } from '@fortawesome/fontawesome-free-brands';
 
 const Wrapper = styled.div`
@@ -59,15 +60,52 @@ const EthereumLogo = styled(FontAwesomeIcon)`
   color: #8c8f93;
 `;
 
+const GreenIcon = styled(FontAwesomeIcon)`
+  color: #00FA9A;
+`;
+
+const RedIcon = styled(FontAwesomeIcon)`
+  color: #FE532E;
+`;
+
+const ErrorWrapper = styled.div`
+  position: absolute;
+  display: inline-block;
+  display: flex;
+  background-color: #f16767;
+  min-height: 70px;
+  width: 140px;
+  font-family: inherit;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  margin-left: 300px;
+  padding: 5px;
+`;
+
 const EtherInput = ({ input, meta, ...props }) => {
   return (
     <Wrapper>
       <InputLeft>
         <EthereumLogo icon={ faEthereum }/>
       </InputLeft>
+      <input step=" 0.000001" { ...input } { ...{ ...props } }/>
       <InputRight>
-        <input step=" 0.000001" { ...input } { ...{ ...props } }/>
+      {(() => {
+        if ((meta.touched && meta.error) || (meta.dirty && meta.error)) return <RedIcon icon={ faExclamationCircle }/>;
+        else if ((meta.touched && !meta.error) || (meta.dirty && !meta.error)) return <GreenIcon icon={ faCheckCircle }/>;
+        else return;
+      })()}
       </InputRight>
+      {(() => {
+        if ((meta.touched && meta.error) || (meta.dirty && meta.error)) {
+          return (
+            <ErrorWrapper>{ meta.error }</ErrorWrapper>
+          )
+        }
+      })()}
     </Wrapper>
   );
 };
