@@ -66,7 +66,7 @@ const EtherInput = ({ input, meta, ...props }) => {
         <EthereumLogo icon={ faEthereum }/>
       </InputLeft>
       <InputRight>
-        <input { ...input } { ...{ ...props } }/>
+        <input step=" 0.000001" { ...input } { ...{ ...props } }/>
       </InputRight>
     </Wrapper>
   );
