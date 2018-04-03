@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import CampaignForm from '../campaign/campaign';
 import { NavBar } from '../components/index';
