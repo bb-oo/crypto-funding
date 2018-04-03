@@ -15,7 +15,7 @@ export const postUser = (username, email) => {
     .into('users');
   
   return query;
-}
+};
 
 export const getUsername = username => {
   const query = knex  
@@ -24,6 +24,20 @@ export const getUsername = username => {
       username: username
     })
     .select('username');
+
+  return query;
+};
+
+export const postCampaign = values => {
+  const query = knex
+    .insert({
+      title: values.title,
+      goal: values.goal,
+      target: values.target,
+      zip: values.zip,
+      category: values.category
+    })
+    .into('campaigns');
 
   return query;
 }

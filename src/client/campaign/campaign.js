@@ -11,7 +11,7 @@ const Form = ({ submitting, handleSubmit }) => {
     <form name="campaign" onSubmit={ handleSubmit }>
       <Field
         autoFocus
-        name="ether"
+        name="goal"
         type="number"
         placeholder="Enter Your Goal"
         component={ EtherInput }
