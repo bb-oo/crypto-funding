@@ -20,7 +20,7 @@ const routes = [
     component: SignIn
   },
   {
-    path: '/new/campaign',
+    path: '/campaign',
     exact: true,
     component: Campaign
   }

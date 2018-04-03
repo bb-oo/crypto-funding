@@ -60,7 +60,7 @@ export const NavBar = ({ session }) => {
           <NavLink path="/"><Logo src="backers-logo-small.png"/></NavLink>
         </NavLeft>
         <NavRight>
-          { session.loggedIn ?  [ <NavLink path="/new/campaign">Start a Campaign</NavLink>, <NavLink path="/">{ session.username }  <FontAwesomeIcon icon={ faCog }/></NavLink> ] : notRegistered }
+          { session.loggedIn ?  [ <NavLink path="/campaign">Start a Campaign</NavLink>, <NavLink path="/">{ session.username }  <FontAwesomeIcon icon={ faCog }/></NavLink> ] : notRegistered }
         </NavRight>
       </FlexWrapper>
     </NavWrapper>
