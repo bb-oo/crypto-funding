@@ -53,6 +53,6 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 const CampaignForm = reduxForm({
   form: 'campaign',
   validate
-});
+})(Form);
 
 export default connect(null, mapDispatchToProps)(CampaignForm);
