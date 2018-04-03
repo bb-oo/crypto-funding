@@ -5,5 +5,6 @@ import NavLink from './nav-link';
 import Routers from './router';
 import Input from './input';
 import Button from './button';
+import EtherInput from './ether-input';
 
-export { Jumbo, NavBar, NavLink, Routers, Header, Input, Button };
+export { Jumbo, NavBar, NavLink, Routers, Header, Input, Button, EtherInput };

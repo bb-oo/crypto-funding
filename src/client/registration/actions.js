@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
 
 import history from '../utils/history';
 import { isEmail, validateUsername, validatePassword } from './helpers';
@@ -28,8 +27,7 @@ export const validate = ({ username = '', password = '', email = '' }) => {
 export const manageSubmit = values => {
   return async (dispatch, getState) => {
     const response = await axios.post('/create/user', values);
-
-    return <Redirect to="/signin"/>;
+    return response;
   }
 }
 

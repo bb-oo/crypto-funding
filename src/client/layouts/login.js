@@ -5,14 +5,14 @@ import PropType from 'prop-types';
 import NavLink from '../components/nav-link';
 
 const Wrapper = styled.div`
-margin: 0 auto;
-background-color: #f0f4f5;
-width: 100%; 
-height: 100vh;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
+  margin: 0 auto;
+  background-color: #f0f4f5;
+  width: 100%; 
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const MainHeader = styled.h1`

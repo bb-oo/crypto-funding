@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { faCog } from '@fortawesome/fontawesome-free-solid';
 
 import NavLink from './nav-link';
 
@@ -50,11 +52,7 @@ const notRegistered = [
   <NavLink key={2} path="/signup" text="Sign Up"/>
 ];
 
-const registered = [
-
-];
-
-export const NavBar = ({ username }) => {
+export const NavBar = ({ session }) => {
   return (
     <NavWrapper>
       <FlexWrapper>
@@ -62,7 +60,7 @@ export const NavBar = ({ username }) => {
           <NavLink path="/"><Logo src="backers-logo-small.png"/></NavLink>
         </NavLeft>
         <NavRight>
-          { username ?  registered : notRegistered }
+          { session.loggedIn ?  [ <NavLink path="/campaign">Start a Campaign</NavLink>, <NavLink path="/">{ session.username }  <FontAwesomeIcon icon={ faCog }/></NavLink> ] : notRegistered }
         </NavRight>
       </FlexWrapper>
     </NavWrapper>
@@ -77,7 +75,7 @@ NavBar.propTypes = {
 };
 
 const mapStateToProps = ({ session }) => {
-  return { username: session ? session.username : false }
+  return { session }
 };
 
 export default connect(mapStateToProps)(NavBar);

@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import { faExclamationCircle, faCheckCircle } from '@fortawesome/fontawesome-free-solid';
+import PropType from 'prop-types';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { faExclamationCircle, faCheckCircle } from '@fortawesome/fontawesome-free-solid';
+import { faEthereum } from '@fortawesome/fontawesome-free-brands';
 
 const Wrapper = styled.div`
   display: inline-block;
@@ -15,7 +16,7 @@ const Wrapper = styled.div`
   align-items: center;
   margin-bottom: 10px;
   color: #c1c5cc;
-  background-color: white;
+  background-color: #e5f0ff;
 
   input {
     padding: 18px 15px 0 15px;
@@ -43,14 +44,6 @@ const Wrapper = styled.div`
   }
 `;
 
-const GreenIcon = styled(FontAwesomeIcon)`
-  color: #00FA9A;
-`;
-
-const RedIcon = styled(FontAwesomeIcon)`
-  color: #FE532E;
-`;
-
 const InputLeft = styled.div`
   display: inline-block;
   float: left;
@@ -61,6 +54,18 @@ const InputRight = styled.div`
   display: inline-block;
   float: right;
   padding-right: 0.4em;
+`;
+
+const EthereumLogo = styled(FontAwesomeIcon)`
+  color: #8c8f93;
+`;
+
+const GreenIcon = styled(FontAwesomeIcon)`
+  color: #00FA9A;
+`;
+
+const RedIcon = styled(FontAwesomeIcon)`
+  color: #FE532E;
 `;
 
 const ErrorWrapper = styled.div`
@@ -80,18 +85,19 @@ const ErrorWrapper = styled.div`
   padding: 5px;
 `;
 
-const Input = ({ input, meta, ...props }) => {
+const EtherInput = ({ input, meta, ...props }) => {
   return (
     <Wrapper>
       <InputLeft>
-        <input { ...input } { ...{ ...props } } />
+        <EthereumLogo icon={ faEthereum }/>
       </InputLeft>
+      <input step=" 0.000001" { ...input } { ...{ ...props } }/>
       <InputRight>
-        {(() => {
-          if ((meta.touched && meta.error) || (meta.dirty && meta.error)) return <RedIcon icon={ faExclamationCircle }/>;
-          else if ((meta.touched && !meta.error) || (meta.dirty && !meta.error)) return <GreenIcon icon={ faCheckCircle }/>;
-          else return;
-        })()}
+      {(() => {
+        if ((meta.touched && meta.error) || (meta.dirty && meta.error)) return <RedIcon icon={ faExclamationCircle }/>;
+        else if ((meta.touched && !meta.error) || (meta.dirty && !meta.error)) return <GreenIcon icon={ faCheckCircle }/>;
+        else return;
+      })()}
       </InputRight>
       {(() => {
         if ((meta.touched && meta.error) || (meta.dirty && meta.error)) {
@@ -102,6 +108,6 @@ const Input = ({ input, meta, ...props }) => {
       })()}
     </Wrapper>
   );
-}
+};
 
-export default Input;
+export default EtherInput;

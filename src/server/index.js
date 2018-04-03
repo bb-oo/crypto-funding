@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 import helmet from 'helmet';
 import path from 'path';
 
-import { createUser, validate, signInUser } from './utils/routes';
+import { createUser, validate, signInUser, createCampaign } from './utils/routes';
 
 const app = express();
 const router = express.Router();
@@ -33,6 +33,12 @@ app.post('/auth/user', async (req, res) => {
 app.post('/create/user', async (req, res) => {
   const data = await createUser(req.body);
   res.json(data);
+});
+
+app.post('/create/campaign', (req, res) => {
+  createCampaign(req.body)
+    .then(data => res.json(data))
+    .catch(err => res.json(err));
 });
 
 app.listen(process.env.PORT);

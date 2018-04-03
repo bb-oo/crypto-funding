@@ -15,7 +15,7 @@ export const onSubmitSuccess = ({ username }) => {
   return async (dispatch, getState) => {
     const { data } = await axios.get(`/user/${username}`);
 
-    dispatch({ type: 'SESSION_STARTED', payload: data });
+    dispatch({ type: 'SESSION_STARTED', payload: data[0] });
     history.push('/');
   }
 }
