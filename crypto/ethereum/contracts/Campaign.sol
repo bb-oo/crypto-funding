@@ -44,4 +44,8 @@ contract Campaign {
 
     totalDonations = 0;
   }
+
+  function payout () public onlyOrganizer {
+    organizer.transfer(totalDonations);
+  }
 }
