@@ -20,5 +20,9 @@ contract Campaign {
     }
   }
 
-  
+  function Campaign (uint _goal, string _title) public {
+    organizer = msg.sender;
+    goal = _goal;
+    title = _title;
+  }
 }
