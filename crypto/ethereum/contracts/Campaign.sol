@@ -32,5 +32,16 @@ contract Campaign {
 
     participants[e].name = _name;
     participants[e].donation = msg.value; 
+    participantAddresses.push(e);
+  }
+
+  function returnDonations () public onlyOrganizer {
+    for (uint i = 0; i < participantAddresses.length; i++) {
+      address p = participantAddresses[i];
+
+      p.transfer(participants[p].donation);
+    }
+
+    totalDonations = 0;
   }
 }
