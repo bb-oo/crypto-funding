@@ -48,4 +48,8 @@ contract Campaign {
   function payout () public onlyOrganizer {
     organizer.transfer(totalDonations);
   }
+
+  function kill () public onlyOrganizer {
+    selfdestruct(organizer);
+  }
 }
