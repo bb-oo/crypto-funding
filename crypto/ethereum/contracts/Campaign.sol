@@ -25,4 +25,12 @@ contract Campaign {
     goal = _goal;
     title = _title;
   }
+
+  function donate (string _name) public payable {
+    address e = msg.sender;
+    totalDonations = totalDonations + msg.value; 
+
+    participants[e].name = _name;
+    participants[e].donation = msg.value; 
+  }
 }
