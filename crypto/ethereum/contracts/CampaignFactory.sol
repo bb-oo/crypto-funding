@@ -16,4 +16,16 @@ contract CampaignFactory {
     campaigns.push(newCampaign);
     CreatedCampaign(newCampaign, msg.sender);
   }
+
+  function checkAddress (address campaignAddress) public view returns (bool) {
+    bool exists = false;
+
+    for (uint i = 0; i < campaigns.length; i++) {
+      if (campaignAddress == campaigns[i]) {
+        exists = true;
+      }
+    }
+
+    return exists;
+  }
 }
