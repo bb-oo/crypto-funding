@@ -11,13 +11,15 @@ if (typeof web3 !== 'undefined') {
   throw new Error('Warning: No web3 instance was detected. Please ensure you have a web3 provider like Metamask.')
 }
 
-const factory = web3.eth.contract(campaignFactoryJSON);
-const factoryInstance = factory.at('0x39131811c580ed9d279cd0ff6d872a60a1bdbfab');
+const factory = new web3.eth.Contract(campaignFactoryJSON, '0x39131811c580ed9d279cd0ff6d872a60a1bdbfab');
 
 export const onSubmit = values => {
   return async (dispatch, getState) => {
     const data = await axios.post('/create/campaign', values);
-    await factoryInstance.createNewCampaign(values.goal, values.title);
+    const goal = web3.utils.toWei(values.goal, 'ether');
+
+    await factory.methods.createNewCampaign(goal, values.title);
+
     return data;
   };
 };
