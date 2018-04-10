@@ -15,4 +15,3 @@ export const validateText = title => {
   if (length < 2) return 'Must be greater than 1 character.';
   return null;
 };
-
