@@ -1,4 +1,4 @@
-pragma solidity ^0.4.18;
+pragma solidity ^0.4.21;
 
 import "./Campaign.sol";
 
@@ -14,7 +14,7 @@ contract CampaignFactory {
     address newCampaign = new Campaign(_goal, _title);
 
     campaigns.push(newCampaign);
-    CreatedCampaign(newCampaign, msg.sender);
+    emit CreatedCampaign(newCampaign, msg.sender);
   }
 
   function checkAddress (address campaignAddress) public view returns (bool) {

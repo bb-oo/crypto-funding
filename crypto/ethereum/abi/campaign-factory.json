@@ -1,0 +1,56 @@
+[
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "campaignAddress",
+				"type": "address"
+			}
+		],
+		"name": "checkAddress",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_goal",
+				"type": "uint256"
+			},
+			{
+				"name": "_title",
+				"type": "string"
+			}
+		],
+		"name": "createNewCampaign",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "campaign",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "organizer",
+				"type": "address"
+			}
+		],
+		"name": "CreatedCampaign",
+		"type": "event"
+	}
+]
