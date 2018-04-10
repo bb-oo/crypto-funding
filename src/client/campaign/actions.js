@@ -20,7 +20,13 @@ export const onSubmit = values => {
 
     await factory.methods.createNewCampaign(goal, values.title);
 
-    return data;
+    const event = factory.event.CreatedCampaign((err, event) => {
+      if (err) {
+        throw new Error(err);
+      } else {
+        const res = await axios.post('/post/notification', event.args.campaign);
+      }
+    })
   };
 };
 
