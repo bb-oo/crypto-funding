@@ -35,9 +35,10 @@ export const postCampaign = values => {
       goal: values.goal,
       target: values.target,
       zip: values.zip,
-      category: values.category
+      category: values.category,
+      campaign_address: values.campaignAddress
     })
     .into('campaigns');
 
   return query;
-}
+};
