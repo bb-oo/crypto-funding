@@ -3,19 +3,15 @@
 		"constant": true,
 		"inputs": [
 			{
-				"name": "",
+				"name": "campaignAddress",
 				"type": "address"
 			}
 		],
-		"name": "participants",
+		"name": "checkAddress",
 		"outputs": [
 			{
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"name": "donation",
-				"type": "uint256"
+				"name": "",
+				"type": "bool"
 			}
 		],
 		"payable": false,
@@ -24,65 +20,6 @@
 	},
 	{
 		"constant": false,
-		"inputs": [],
-		"name": "kill",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "participantAddresses",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [],
-		"name": "payout",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [],
-		"name": "returnDonations",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_name",
-				"type": "string"
-			}
-		],
-		"name": "donate",
-		"outputs": [],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
 		"inputs": [
 			{
 				"name": "_goal",
@@ -93,8 +30,27 @@
 				"type": "string"
 			}
 		],
+		"name": "createNewCampaign",
+		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
-		"type": "constructor"
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "campaign",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "organizer",
+				"type": "address"
+			}
+		],
+		"name": "CreatedCampaign",
+		"type": "event"
 	}
 ]
