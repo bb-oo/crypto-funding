@@ -24,7 +24,7 @@ export const onSubmit = values => {
       if (err) {
         throw new Error(err);
       } else {
-        const res = await axios.post('/post/notification', event.args.campaign);
+        const res = await axios.post('/new/campaign/notification', event.args.campaign);
       }
     })
   };
