@@ -11,7 +11,7 @@ CREATE TABLE campaigns (
   category          text,
   donations         int,
   goal              decimal,
-  target_address    text,
-  organizer_address text,
-  amount_raised     decimal
+  amount_raised     decimal,
+  image_url         text,
+  campaign_address  text
 );

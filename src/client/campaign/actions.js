@@ -15,12 +15,22 @@ const factory = new web3.eth.Contract(campaignFactoryJSON, '0x39131811c580ed9d27
 
 export const onSubmit = values => {
   return async (dispatch, getState) => {
-    const data = await axios.post('/create/campaign', values);
+    let campaignAddress;
     const goal = web3.utils.toWei(values.goal, 'ether');
 
     await factory.methods.createNewCampaign(goal, values.title);
 
-    return data;
+    const event = factory.events.CreatedCampaign((err, event) => {
+      if (err) {
+        throw new Error(err);
+      } else {
+        campaignAddress = event.args.campaign;
+      }
+    });
+
+    values.campaignAddress = campaignAddress;
+
+    const data = await axios.post('/create/campaign', values);    
   };
 };
 
