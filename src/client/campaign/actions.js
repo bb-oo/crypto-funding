@@ -20,14 +20,14 @@ export const onSubmit = values => {
 
     await factory.methods.createNewCampaign(goal, values.title);
 
-    const event = factory.event.CreatedCampaign((err, event) => {
+    const event = factory.events.CreatedCampaign((err, event) => {
       if (err) {
         throw new Error(err);
       } else {
         campaignAddress = event.args.campaign;
       }
     });
-    
+
     values.campaignAddress = campaignAddress;
 
     const data = await axios.post('/create/campaign', values);    
