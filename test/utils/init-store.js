@@ -5,7 +5,7 @@ import reducer from '../../src/client/reducers/index';
 
 //const { devToolsExtension = () => _ => _ } = global;
 const initStore = state => (
-  createStore(reducer, state)
+  createStore(reducer, state, applyMiddleware(thunk))
 );
 
 export default initStore;

@@ -12,13 +12,14 @@ describe('NavBar', () => {
 
     beforeEach(() => {
       const provide = withStore({});
-      const Wrapper = provide(NavBar, { username: username });
+      const session = { loggedIn: true, username: username } 
+      const Wrapper = provide(NavBar, { session });
       wrapper = mount(Wrapper);
     });
 
     it('Displays navigation links and username', () => {
       const link = wrapper.find(NavLink).at(1);
-      expect(link).to.have.text(username);
+      expect(link).to.have.text('Start a Campaign');
     });
   });
   describe('When the user does not have an active session', () => {
@@ -26,13 +27,14 @@ describe('NavBar', () => {
 
     beforeEach(() => {
       const provide = withStore({});
-      const Wrapper = provide(NavBar, { username: false });
+      const session = { loggedIn: false }
+      const Wrapper = provide(NavBar, { session });
       wrapper = mount(Wrapper);
     });
 
     it('Displays a login link', () => {
       const link = wrapper.find(NavLink).at(1);
-      expect(link).to.have.text('Sign Up');
+      expect(link).to.have.text('Sign In');
     });
   });
 });
