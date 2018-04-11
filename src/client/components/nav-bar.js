@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { faCog } from '@fortawesome/fontawesome-free-solid';
+import SearchBar from './search-bar';
 
 import NavLink from './nav-link';
 
@@ -31,6 +32,9 @@ const NavLeft = styled.div`
   float: left;
   display: inline-block;
   box-sizing: border-box;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
 `;
 
 const NavRight = styled.div`
@@ -58,6 +62,7 @@ export const NavBar = ({ session }) => {
       <FlexWrapper>
         <NavLeft>
           <NavLink path="/"><Logo src="backers-logo-small.png"/></NavLink>
+          <SearchBar/>
         </NavLeft>
         <NavRight>
           { session.loggedIn ?  [ <NavLink path="/campaign">Start a Campaign</NavLink>, <NavLink path="/">{ session.username }  <FontAwesomeIcon icon={ faCog }/></NavLink> ] : notRegistered }
