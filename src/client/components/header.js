@@ -11,6 +11,8 @@ const H1 = styled.h1`
   margin-bottom: ${props => props.mb};
 `;
 
+H1.displayName = 'H1';
+
 const H4 = styled.h4`
   color: white;
   font-family: ${props => props.font};
@@ -27,7 +29,7 @@ const Header = ({ text, size, font, weight, ...props }) => {
     case 4:
       return <H4 font={ font } weight={ weight } { ...props }>{ text }</H4>;
     default:
-      throw new Error('Incorrect prop value for `size`="`%s`".', size);
+      throw new Error(`Incorrect prop value for size = ${size}.`);
   }
 };
 

@@ -31,7 +31,7 @@ beforeEach(() => {
   global.navigator = {
     userAgent: 'node.js',
   };
-  copyProps(window, global);
+  copyProps(window)(global);
 });
 
 afterEach(() => {

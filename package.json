@@ -10,8 +10,8 @@
     "start": "babel-node src/server/index.js --presets env",
     "dev": "yarn build && yarn start",
     "test": "mocha -r babel-register test/**/*.test.js",
-    "test:unit": "mocha -r babel-register test/**/*.unit.test.js",
-    "test:int": "mocha -r babel-register test/**/*.int.test.js"
+    "test:unit": "mocha -r babel-register test/unit/*.unit.test.js",
+    "test:int": "mocha -r babel-register test/integration/*.int.test.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.5",
@@ -42,6 +42,7 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
+    "babel-plugin-styled-components": "^1.5.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
