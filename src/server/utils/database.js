@@ -45,7 +45,7 @@ export const postCampaign = values => {
 
 export const getCampaigns = search => {
   const query = knex
-    .tables('campaigns')
+    .table('campaigns')
     .where({
       title: search
     })
