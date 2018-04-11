@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 import helmet from 'helmet';
 import path from 'path';
 
-import { createUser, validate, signInUser, createCampaign } from './utils/routes';
+import { createUser, validate, signInUser, createCampaign, getCampaigns } from './utils/routes';
 
 const app = express();
 const router = express.Router();
@@ -23,6 +23,11 @@ router.get('*', (req, res) => {
 app.get('/user/:username', async (req, res) => {
   const response = await validate(req.params.username);
   res.json(response);
+});
+
+app.get('/search/campaigns/:campaign', async (req, res) => {
+  const data = await getCampaigns(req.params.campaign);
+  res.json(data);
 });
 
 app.post('/auth/user', async (req, res) => {
