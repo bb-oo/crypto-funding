@@ -52,4 +52,4 @@ export const getCampaigns = search => {
     .select('*');
   
   return query;
-}
+};
