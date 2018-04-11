@@ -25,7 +25,7 @@ const copyProps = src => target => {
 before(() => console.log(grey('\n Unit Tests\n')));
 
 beforeEach(() => {
-  const { window } = new JSDOM(`<!doctype html><html><body></body></html>`);
+  const { window } = new JSDOM(`<!doctype><html><body></body></html>`);
   global.window = window;
   global.document = window.document;
   global.navigator = {
