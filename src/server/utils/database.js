@@ -42,3 +42,14 @@ export const postCampaign = values => {
 
   return query;
 };
+
+export const getCampaigns = search => {
+  const query = knex
+    .tables('campaigns')
+    .where({
+      title: search
+    })
+    .select('*');
+  
+  return query;
+}
