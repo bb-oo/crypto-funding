@@ -1,0 +1,18 @@
+{
+  "reporter": [
+    "lcov",
+    "text-summary"
+  ],
+  "include": [
+    "src/client/**/*.js",
+    "src/server/utils/**/*.js"
+  ],
+  "exclude": [
+    "**/test/**",
+    "**/index.js",
+    "**/*.test.js",
+    "**/*.config.js",
+    "src/client/layouts"
+  ],
+  "all": true
+}
