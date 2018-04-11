@@ -31,7 +31,7 @@ export const createCampaign = values => {
     .catch(err => err);
 };
 
-export const getCampaigns = search => {
+export const fetchCampaigns = search => {
   return getCampaigns(search)
     .then(data => data)
     .catch(err => err);

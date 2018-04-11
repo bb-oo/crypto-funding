@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 import helmet from 'helmet';
 import path from 'path';
 
-import { createUser, validate, signInUser, createCampaign, getCampaigns } from './utils/routes';
+import { createUser, validate, signInUser, createCampaign, fetchCampaigns } from './utils/routes';
 
 const app = express();
 const router = express.Router();
@@ -26,7 +26,7 @@ app.get('/user/:username', async (req, res) => {
 });
 
 app.get('/search/campaigns/:campaign', async (req, res) => {
-  const data = await getCampaigns(req.params.campaign);
+  const data = await fetchCampaigns(req.params.campaign);
   res.json(data);
 });
 
