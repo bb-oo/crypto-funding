@@ -10,7 +10,9 @@ export const asyncValidateUsername = ({ username }) => {
     const { data } = await axios.get(`/user/${username}`);
     if (data.length > 0) {
       throw { username: `Username ${username} is already taken.` };
-    } 
+    } else {
+      return null;
+    }
   }
 }
 
@@ -24,7 +26,7 @@ export const validate = ({ username = '', password = '', email = '' }) => {
   return errors;
 }
 
-export const manageSubmit = values => {
+export const onSubmit = values => {
   return async (dispatch, getState) => {
     const response = await axios.post('/create/user', values);
     return response;

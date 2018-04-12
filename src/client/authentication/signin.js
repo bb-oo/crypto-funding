@@ -4,14 +4,11 @@ import { reduxForm, Field } from 'redux-form';
 import { bindActionCreators } from 'redux';
 
 import { Input, Button } from '../components/index';
-import { manageSubmit, onSubmitSuccess, validate } from './actions';
+import { onSubmit, onSubmitSuccess, validate } from './actions';
 
-const Form = ({ submitting, handleSubmit, manageSubmit, onSubmitSuccess }) => {
+const Form = ({ submitting, handleSubmit }) => {
   return (
-    <form name='signin' onSubmit={ handleSubmit(values => {
-      manageSubmit(values) 
-      onSubmitSuccess(values)
-    })}>
+    <form name='signin' noValidate onSubmit={ handleSubmit }>
       <Field
         autoFocus
         name='username'
@@ -37,7 +34,7 @@ const Form = ({ submitting, handleSubmit, manageSubmit, onSubmitSuccess }) => {
 };
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  manageSubmit,
+  onSubmit,
   onSubmitSuccess
 }, dispatch);
 

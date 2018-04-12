@@ -9,9 +9,9 @@
     "build": "webpack",
     "start": "babel-node src/server/index.js --presets env",
     "dev": "yarn build && yarn start",
-    "test": "mocha -r babel-register test/**/*.test.js",
-    "test:unit": "mocha -r babel-register test/unit/*.unit.test.js",
-    "test:int": "mocha -r babel-register test/integration/*.int.test.js",
+    "test": "mocha -r babel-register -r babel-polyfill test/**/*.test.js",
+    "test:unit": "mocha -r babel-register -r babel-polyfill test/unit/*.unit.test.js",
+    "test:int": "mocha -r babel-register -r babel-polyfill test/integration/*.int.test.js",
     "cover": "nyc run-s -s test:**"
   },
   "dependencies": {

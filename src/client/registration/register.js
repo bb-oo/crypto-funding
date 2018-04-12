@@ -4,20 +4,20 @@ import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 import { bindActionCreators } from 'redux';
 
-import { asyncValidateUsername, manageSubmit, validate, onSubmitSuccess } from './actions';
+import { asyncValidateUsername, onSubmit, validate, onSubmitSuccess } from './actions';
 import { Input, Button } from '../components/index';
 
 const asyncValidate = _.debounce(asyncValidateUsername, 200);
 
-const Form = ({ manageSubmit, handleSubmit, submitting, asyncValidate }) => {
+const Form = ({ handleSubmit, submitting }) => {
   return (
-    <form name="register" onSubmit={ handleSubmit(values => manageSubmit(values)) }>
+    <form name="register" noValidate onSubmit={ handleSubmit }>
       <Field
         autoFocus
         name='username'
         type='text'
         placeholder='Username'
-        onChange={ event => asyncValidate(event.target.value) }
+        onChange={ asyncValidate }
         component={ Input }
       />
       <Field
@@ -39,7 +39,7 @@ const Form = ({ manageSubmit, handleSubmit, submitting, asyncValidate }) => {
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   asyncValidate,
-  manageSubmit,
+  onSubmit,
   onSubmitSuccess
 }, dispatch);
 
