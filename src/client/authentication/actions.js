@@ -3,7 +3,7 @@ import history from '../utils/history';
 
 import { isEmail, validateUsername, validatePassword } from './helpers';
 
-export const manageSubmit = values => {
+export const onSubmit = values => {
   return async (dispatch, getState) => {
     const { data } = await axios.post('/auth/user', values);
 
