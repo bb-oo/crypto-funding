@@ -1,5 +1,5 @@
 import { auth } from './firebase';
-import { postUser, getUsername, postCampaign } from './database';
+import { postUser, getUsername, postCampaign, getCampaigns } from './database';
 
 export const createUser = ({ username, email, password }) => {
   return auth.createUserWithEmailAndPassword(email, password)
@@ -27,6 +27,12 @@ export const signInUser = ({ username, email, password }) => {
 
 export const createCampaign = values => {
   return postCampaign(values)
+    .then(data => data)
+    .catch(err => err);
+};
+
+export const fetchCampaigns = search => {
+  return getCampaigns(search)
     .then(data => data)
     .catch(err => err);
 };
