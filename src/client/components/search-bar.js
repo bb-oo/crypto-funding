@@ -49,14 +49,11 @@ class SearchBar extends Component {
   }
 
   async handleClick() {
-    console.log(this.state.inputVal)
     const data = await axios.get(`/search/campaigns/${this.state.inputVal}`);
-    console.log(data)
   }
 
   handleChange(event) {
     this.setState({ inputVal: event.target.value });
-    console.log(this.state.inputVal)
   }
 
   render() {
