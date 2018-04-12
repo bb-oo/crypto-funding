@@ -10,7 +10,9 @@ export const asyncValidateUsername = ({ username }) => {
     const { data } = await axios.get(`/user/${username}`);
     if (data.length > 0) {
       throw { username: `Username ${username} is already taken.` };
-    } 
+    } else {
+      return null;
+    }
   }
 }
 

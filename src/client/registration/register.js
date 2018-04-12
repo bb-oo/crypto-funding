@@ -9,15 +9,15 @@ import { Input, Button } from '../components/index';
 
 const asyncValidate = _.debounce(asyncValidateUsername, 200);
 
-const Form = ({ handleSubmit, submitting, asyncValidate }) => {
+const Form = ({ handleSubmit, submitting }) => {
   return (
-    <form name="register" onSubmit={ handleSubmit }>
+    <form name="register" noValidate onSubmit={ handleSubmit }>
       <Field
         autoFocus
         name='username'
         type='text'
         placeholder='Username'
-        onChange={ event => asyncValidate(event.target.value) }
+        onChange={ asyncValidate }
         component={ Input }
       />
       <Field
