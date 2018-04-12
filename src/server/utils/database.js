@@ -46,9 +46,7 @@ export const postCampaign = values => {
 export const getCampaigns = search => {
   const query = knex
     .table('campaigns')
-    .where({
-      title: search
-    })
+    .whereRaw("title LIKE ?", [search])
     .select('*');
   
   return query;
