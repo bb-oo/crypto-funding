@@ -24,7 +24,7 @@ export const validate = ({ username = '', password = '', email = '' }) => {
   return errors;
 }
 
-export const manageSubmit = values => {
+export const onSubmit = values => {
   return async (dispatch, getState) => {
     const response = await axios.post('/create/user', values);
     return response;
