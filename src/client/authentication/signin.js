@@ -8,7 +8,7 @@ import { onSubmit, onSubmitSuccess, validate } from './actions';
 
 const Form = ({ submitting, handleSubmit }) => {
   return (
-    <form name='signin' onSubmit={ handleSubmit }>
+    <form name='signin' noValidate onSubmit={ handleSubmit }>
       <Field
         autoFocus
         name='username'
