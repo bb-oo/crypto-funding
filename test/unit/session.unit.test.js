@@ -32,4 +32,18 @@ describe('session', () => {
       expect(newState.loggedIn).to.equal(false);
     })
   })
+
+  describe('default return', () => {
+    
+    it('returns the old state', () => {
+      const oldState = { loggedIn: true, username: 'TestUser' };
+      const action = { 
+        type: 'INCORRECT_TYPE',
+        payload: { username: 'Does not matter' }
+      };
+
+      const newState = session(oldState, action);
+      expect(newState).to.equal(oldState);
+    })
+  })
 })
