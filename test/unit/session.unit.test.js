@@ -21,4 +21,15 @@ describe('session', () => {
       expect(newState.loggedIn).to.equal(true);
     })
   })
+
+  describe('SESSION_ENDED', () => {
+    
+    it('returns an object with loggedIn equal to false', () => {
+      const oldState = { loggedIn: true, username: 'TestUser' };
+      const action = { type: 'SESSION_ENDED' };
+      
+      const newState = session(oldState, action);
+      expect(newState.loggedIn).to.equal(false);
+    })
+  })
 })
