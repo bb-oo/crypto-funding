@@ -20,7 +20,7 @@ export const onSubmit = values => {
 
     await factory.methods.createNewCampaign(goal, values.title);
 
-    const event = Factory.events.CreatedCampaign((err, evnt) => {
+    const event = factory.events.CreatedCampaign((err, evnt) => {
       if (err) {
         throw new Error(err);
       } else {
