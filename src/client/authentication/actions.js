@@ -6,8 +6,16 @@ import { isEmail, validateUsername, validatePassword } from './helpers';
 export const onSubmit = values => {
   return async (dispatch, getState) => {
     const { data } = await axios.post('/auth/user', values);
-
-    return values;
+    
+    if (data.code === 'auth/wrong-password') {
+      throw { password: 'Incorrect password.' };
+    } else if (data.code === 'auth/user-not-found') {
+      throw { email: 'Incorrect email.' };
+    } else if (!data) {
+      throw { username: 'Incorrect username.' };
+    } else {
+      return values;
+    }
   }
 }
 
