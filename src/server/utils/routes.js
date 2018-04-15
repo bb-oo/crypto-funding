@@ -18,9 +18,10 @@ export const validate = username => {
 export const signInUser = ({ username, email, password }) => {
   return auth.signInWithEmailAndPassword(email, password)
     .then(() => {
-      getUsername(username)
-        .then(data => data)
-        .catch(err => err)
+      return getUsername(username)
+        .then(data => {
+          if (data.length < 1) return 'Username not found.';
+        })
     })
     .catch(err => err)
 };
