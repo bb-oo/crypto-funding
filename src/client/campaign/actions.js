@@ -18,9 +18,7 @@ export const onSubmit = values => {
     let campaignAddress;
     const goal = web3.utils.toWei(values.goal, 'ether');
 
-    await factory.methods.createNewCampaign(goal, values.title, (err, res) => {
-      if (err) throw new Error(err);
-    });
+    await factory.methods.createNewCampaign(goal, values.title);
 
     const event = Factory.events.CreatedCampaign((err, evnt) => {
       if (err) {
