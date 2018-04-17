@@ -31,5 +31,17 @@ describe('registration/actions', () => {
         expect(axios.get).to.have.been.calledWith(`/user/${unavailable}`);
       })
     })
+
+    describe('when a username is available', () => {
+      
+      it('resolves', async () => {
+        const available = 'foo';
+        axios.get.resolves({ data: [] });
+        const res = await store.dispatch(asyncValidateUsername({ username: available }));
+
+        expect(res).to.equal(null);
+        expect(axios.get).to.have.been.calledWith(`/user/${available}`);
+      })
+    })
   })
 })
