@@ -1,13 +1,28 @@
 import axios from 'axios';
 import history from '../utils/history';
+import { SubmissionError } from 'redux-form';
 
 import { isEmail, validateUsername, validatePassword } from './helpers';
 
 export const onSubmit = values => {
   return async (dispatch, getState) => {
     const { data } = await axios.post('/auth/user', values);
-
-    return values;
+    
+    if (data.code === 'auth/wrong-password') {
+      throw new SubmissionError({
+        password: 'Incorrect password.'
+      }); 
+    } else if (data.code === 'auth/user-not-found') {
+      throw new SubmissionError({
+        email: 'Incorrect email.'
+      });
+    } else if (data === 'Username not found.') {
+      throw new SubmissionError({
+        username: 'Incorrect username.'
+      });
+    } else {
+      return values;
+    }
   }
 }
 
