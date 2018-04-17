@@ -6,8 +6,8 @@ import path from 'path';
 
 import { createUser, validate, signInUser, createCampaign, fetchCampaigns } from './utils/routes';
 
-export const app = express();
-export const router = express.Router();
+const app = express();
+const router = express.Router();
 
 app.use(express.static(__dirname + '/../client/static'));
 app.use(express.static(__dirname + '/../../build/'));
