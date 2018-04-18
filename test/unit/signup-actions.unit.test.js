@@ -43,5 +43,15 @@ describe('registration/actions', () => {
         expect(axios.get).to.have.been.calledWith(`/user/${available}`);
       })
     })
+
+    describe('when no username is passed', () => {
+
+      it('resolves without sending a request', async () => {
+        const input = '';
+        const res = await store.dispatch(asyncValidateUsername({ username: input }));
+
+        expect(res).to.equal(undefined);
+      })
+    })
   })
 })
