@@ -4,7 +4,7 @@ import { postUser, getUsername, postCampaign, getCampaigns } from './database';
 export const createUser = ({ username, email, password }) => {
   return auth.createUserWithEmailAndPassword(email, password)
     .then(() => {
-      postUser(username, email)
+      return postUser(username, email)
         .then(data => data)
         .catch(err => err)
     })

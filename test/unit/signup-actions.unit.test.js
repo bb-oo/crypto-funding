@@ -54,4 +54,21 @@ describe('registration/actions', () => {
       })
     })
   })
+
+  describe('onSubmit', () => {
+
+    beforeEach(() => stub(axios, 'post'))
+
+    afterEach(() => axios.post.restore())
+
+    it('posts a new user', async () => {
+      axios.post.resolves({ data: '' });
+      const res = await store.dispatch(onSubmit({ username: 'foo', email: 'test@user.com', password: 'testing123' }));
+      
+      expect(res).to.be.an('object');
+      expect(axios.post).to.have.been.calledWith('/create/user', 
+        { username: 'foo', email: 'test@user.com', password: 'testing123' }
+      )
+    })
+  })
 })
